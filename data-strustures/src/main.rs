@@ -1,21 +1,26 @@
-pub mod stack;
-use crate::stack::Stack;
+pub mod cir_queue;
+use crate::cir_queue::Queue;
 
 fn main() {
     println!("hello");
 
-    let mut s1 = Stack::new(5);
+    let mut q1 = Queue::new(5);
 
-    s1.push(10);
-    s1.push(11);
-    s1.push(12);
-    s1.push(13);
-    s1.push(14);
+    println!("{:?}", q1);
+    q1.enqueue(1);
+    println!("{:?}", q1);
+    q1.enqueue(2);
+    println!("{:?}", q1);
+    q1.enqueue(3);
+    q1.enqueue(4);
+    q1.enqueue(5);
 
-    println!("Started popping ...");
-    let x = s1.pop();
-    println!("{x} ");
-
-
-    s1.print()
+    println!("{}", q1.dequeue());
+    println!("{:?}", q1);
+    println!("{}", q1.dequeue());
+    println!("{:?}", q1);
+    println!("{}", q1.dequeue());
+    q1.enqueue(10);
+    q1.enqueue(20);
+    println!("{:?}", q1);
 }
