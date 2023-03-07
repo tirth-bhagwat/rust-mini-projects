@@ -1,30 +1,21 @@
+mod cir_queue_option;
 mod stack_generic;
-use crate::stack_generic::Stack;
+use crate::cir_queue_option::Queue;
 
 fn main() {
-    println!("hello");
+    let mut q1 = Queue::new(5);
 
-    let mut s1: Stack<isize> = Stack::new(5);
-    s1.push(10);
-    s1.push(10);
-    s1.push(10);
-    s1.push(10);
-    s1.push(10);
+    for i in 0..7 {
+        let res = q1.enqueue(i as isize);
+        match res {
+            Some(value) => println!("Inserted {value}"),
+            None => println!("Cannot insert {i}"),
+        }
+    }
 
-    println!("{}", s1.pop());
-    println!("{}", s1.pop());
-    println!("{}", s1.pop());
-    println!("{}", s1.pop());
+    q1.enqueue(30 as isize).expect("Error Message");
+    // above line will panic with given message if value is None
 
-    s1.push(13);
-    s1.push(11);
-    println!("{:?}", s1);
-
-    let mut s2: Stack<String> = Stack::new(5);
-    s2.push(String::from("a"));
-    s2.push(String::from("b"));
-    s2.push(String::from("c"));
-    s2.push(String::from("d"));
-    println!("{}", s2.pop());
-    println!("{:?}", s2);
+    q1.enqueue(40 as isize).unwrap();
+    // above line will panic with a bulilt-in message
 }

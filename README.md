@@ -4,3 +4,5 @@
 
 1. [Data Structures](./data-strustures/)
     - stack
+    - queue
+    - stack (genreric)

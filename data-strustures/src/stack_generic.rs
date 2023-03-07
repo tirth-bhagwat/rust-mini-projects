@@ -1,5 +1,3 @@
-use std::vec;
-
 #[derive(Debug)]
 pub struct Stack<T> {
     pub tos: isize,
