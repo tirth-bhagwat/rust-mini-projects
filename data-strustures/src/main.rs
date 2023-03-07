@@ -1,26 +1,30 @@
-pub mod cir_queue;
-use crate::cir_queue::Queue;
+mod stack_generic;
+use crate::stack_generic::Stack;
 
 fn main() {
     println!("hello");
 
-    let mut q1 = Queue::new(5);
+    let mut s1: Stack<isize> = Stack::new(5);
+    s1.push(10);
+    s1.push(10);
+    s1.push(10);
+    s1.push(10);
+    s1.push(10);
 
-    println!("{:?}", q1);
-    q1.enqueue(1);
-    println!("{:?}", q1);
-    q1.enqueue(2);
-    println!("{:?}", q1);
-    q1.enqueue(3);
-    q1.enqueue(4);
-    q1.enqueue(5);
+    println!("{}", s1.pop());
+    println!("{}", s1.pop());
+    println!("{}", s1.pop());
+    println!("{}", s1.pop());
 
-    println!("{}", q1.dequeue());
-    println!("{:?}", q1);
-    println!("{}", q1.dequeue());
-    println!("{:?}", q1);
-    println!("{}", q1.dequeue());
-    q1.enqueue(10);
-    q1.enqueue(20);
-    println!("{:?}", q1);
+    s1.push(13);
+    s1.push(11);
+    println!("{:?}", s1);
+
+    let mut s2: Stack<String> = Stack::new(5);
+    s2.push(String::from("a"));
+    s2.push(String::from("b"));
+    s2.push(String::from("c"));
+    s2.push(String::from("d"));
+    println!("{}", s2.pop());
+    println!("{:?}", s2);
 }
